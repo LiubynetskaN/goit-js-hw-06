@@ -5,16 +5,19 @@ formEl.addEventListener("submit", formSubmitHandler)
 function formSubmitHandler(event){
     event.preventDefault()
 
-    const inputEmail = event.target.elements.email
-    
-    const inputPassword = event.target.elements.password
+    const { elements: {email, password} } = event.target;
+  
+    if (email.value === "" || password.value === "") {
+      return alert("Будь ласка, заповніть усі поля!");
+    }
+  
+    const objectData = {
+      email: email.value,
+      password: passwor.value,
+    };
+  
+    console.log(objectData);
+  
+    event.target.reset();
+  }
 
-    if (inputEmail.value === "" || inputPassword.value === "" ){
-        return alert("Будь ласка, заповніть усі поля!");
-    } const data = {
-        email : inputEmail.value,
-        password : inputPassword.value,
-    } 
-    console.log(data)
-    event.target.reset()
-}
